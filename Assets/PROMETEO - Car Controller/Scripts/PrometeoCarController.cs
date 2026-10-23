@@ -262,6 +262,12 @@ public class PrometeoCarController : MonoBehaviour
 
     }
 
+    void FixedUpdate()
+    {
+      frontLeftCollider.steerAngle = 0f;
+      frontRightCollider.steerAngle = 0f;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -338,12 +344,13 @@ public class PrometeoCarController : MonoBehaviour
           GoReverse();
         }
 
-        if(Input.GetKey(KeyCode.A)){
-          TurnLeft();
-        }
-        if(Input.GetKey(KeyCode.D)){
-          TurnRight();
-        }
+        // No need for steering
+        // if(Input.GetKey(KeyCode.A)){
+        //   TurnLeft();
+        // }
+        // if(Input.GetKey(KeyCode.D)){
+        //   TurnRight();
+        // }
         if(Input.GetKey(KeyCode.Space)){
           CancelInvoke("DecelerateCar");
           deceleratingCar = false;
